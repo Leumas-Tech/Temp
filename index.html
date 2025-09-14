@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Leumas • MediaPipe Hand HUD (Python)</title>
+<style>
+  *{box-sizing:border-box} html,body{margin:0;height:100%;background:#000;color:#e6f3ff;
+     font:15px/1.35 system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif}
+  .wrap{position:fixed; inset:0; display:grid; grid-template-rows:56px 1fr}
+  header{display:flex; align-items:center; gap:8px; padding:0 12px;
+    background:linear-gradient(180deg, rgba(0,0,0,.55), transparent); backdrop-filter: blur(8px)}
+  .btn{border:1px solid rgba(255,255,255,.15); background:rgba(7,12,18,.65); color:#e6f3ff;
+       padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600}
+  .view{position:relative; overflow:hidden; background:#000}
+  .view img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .badge{position:fixed; left:12px; bottom:12px; background:rgba(0,0,0,.55);
+         border:1px solid rgba(255,255,255,.15); padding:6px 10px; border-radius:10px; font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <strong>Leumas • MediaPipe (Python)</strong>
+    <button class="btn" onclick="location.reload()">Reload</button>
+  </header>
+  <div class="view">
+    <!-- MJPEG stream coming from Flask -->
+    <img src="/stream" alt="Hand stream"/>
+  </div>
+</div>
+<div class="badge">Server model • maxHands: 1</div>
+</body>
+</html>
